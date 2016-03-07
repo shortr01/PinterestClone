@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>Robyns App</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet"href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script scr="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= render 'home/header' %>
+<div class="container">
+  <% flash.each do |name, msg| %>
+ <%= content_tag( :div, msg, class: "alert alert-info") %>
+ <% end %>
 <%= yield %>
-
+</div>
 </body>
 </html>
